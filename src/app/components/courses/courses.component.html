@@ -1,0 +1,16 @@
+<div class="container">
+    <h2 class="pt-4">Cursos de Extensión </h2>
+    <span> Los Fundamentos </span>
+    <section id ="how_it_works">
+        <div class="row" >
+            <div class="col-4 pt-4" *ngFor="let course of courses">
+                <a [routerLink]="['/Course',course._id ]">
+                <img src="https://info.flag.org/extensioncourse//home/courses/content/0/image_es_MX/27a.png" alt="">
+                <br>
+               <span>{{course.name}}</span>
+               <em class="blockquote-footer"> {{course.description}}</em>
+            </a>
+            </div>
+        </div>
+    </section>
+</div>

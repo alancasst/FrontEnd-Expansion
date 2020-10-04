@@ -1,0 +1,42 @@
+<div class="container">
+    <h2 class="pt-4">Iniciar Sesión de Curso </h2>
+    <span> Curso de Extensión Flag </span>
+    <section id ="how_it_works">
+        <div class="d-flex justify-content-center">
+
+
+
+          <!--Login Form-->
+       
+        <form class="col-6" #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+              
+          <!--Email field-->
+              <label for="exampleInputEmail1">Correo Electrónico</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electrónico" #email="ngModel" [(ngModel)]="model.email" [pattern]="emailRegex" required [ngClass]="{'invalid-textbox': signInForm.submitted && !email.valid}" name= "email">
+              <div class="alert alert-danger" role="alert"*ngIf="signInForm.submitted && email.errors?.pattern">
+                  <strong>Correo Electrónico </strong> inválido .
+              </div>
+          <!--Password field-->
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" #password="ngModel" [(ngModel)]="model.password" required  minlength="4" [ngClass]="{'invalid-textbox': signInForm.submitted && !password.valid}" name="password">
+               <div class="alert alert-danger" role="alert"*ngIf="signInForm.submitted && password.errors?.minlength">
+                  <strong>Contraseña </strong> inválida.
+              </div>
+              <div class="d-flex justify-content-center alert alert-danger" role="alert" *ngIf="showSuccesMessage">
+             {{serverErrorMessages}}
+              </div>
+              <div class="pt-2">
+            <button type="submit" class="btn btn-primary">Iniciar</button>
+            o <a href="">Regístrese ahora</a>
+             </div>  
+          </form>
+
+          <!--Error Message-->
+         
+        
+      
+        </div>
+       
+
+    </section>
+</div>

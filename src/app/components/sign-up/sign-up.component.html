@@ -1,0 +1,368 @@
+<div class="container">
+    <h2 class="pt-4">Registro </h2>
+    <span> Scientology </span>
+    <section id ="how_it_works">
+       
+       
+        <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+       
+                
+          <!--name-->
+          <label for="exampleInputEmail1">Nombre </label>
+                <input type="text" class="form-control" placeholder="Nombre" #name="ngModel" [(ngModel)]="userService.selectedUser.name" name="name" required>
+                <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !name.valid">
+                  <strong>Nombre </strong> obligatorio.
+
+                </div>
+                
+          <!--lastname-->
+                    <label for="exampleInputEmail1">Apellido </label>
+                    <input type="text" class="form-control" placeholder="Apellido" #lastname="ngModel" [(ngModel)]="userService.selectedUser.lastname" name="lastname" required>
+                    <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !lastname.valid">
+                      <strong>Apellido </strong> obligatorio.
+    
+                    </div>
+       
+           <!--email-->
+              <label for="exampleInputEmail1">Correo Electrónico</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electrónico" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" required [pattern]='emailRegex'>
+              <div *ngIf="signUpForm.submitted && email.errors">
+              <div class="alert alert-danger " role="alert" *ngIf="email.errors.required">
+                <strong>Correo Electrónico</strong>  obligatorio.
+              </div>
+              <div class="alert alert-danger " role="alert" *ngIf="email.errors.pattern">
+                <strong>Correo Electrónico</strong>  inválido.
+              </div>
+            </div>
+             
+            <!--password-->
+              <label for="exampleInputPassword1">Nueva Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" required minlength="5">
+
+              <div *ngIf="signUpForm.submitted && password.errors">
+                <div class="alert alert-danger " role="alert" *ngIf="password.errors.required">
+                  <strong>Contraseña </strong>  obligatoria.
+                </div>
+                <div class="alert alert-danger " role="alert" *ngIf="password.errors.minlength">
+                  <strong>Contraseña </strong>  5 carácteres mínimo.
+                </div>
+              </div>
+            
+            <!--genre-->
+                <label for="exampleFormControlSelect1">Género</label >
+                <select class="form-control" id="exampleFormControlSelect1" #genre="ngModel" [(ngModel)]="userService.selectedUser.genre" name="genre" required>
+                  <option value="Hombre">Hombre</option>
+                  <option value="Mujer">Mujer</option>
+                </select>
+                <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !genre.valid">
+                  <strong>Género </strong> obligatorio.
+                </div>
+   
+              
+           <!--address-->
+                <label for="exampleInputEmail1">Dirección </label>
+                <input type="text" class="form-control" placeholder="Dirección" #address="ngModel" [(ngModel)]="userService.selectedUser.address" name="address" required>
+                <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !genre.valid">
+                  <strong>Domicilio </strong> obligatorio.
+                </div>
+   
+
+            <!--city-->
+                    <label for="exampleInputEmail1">Ciudad </label>
+                    <input type="text" class="form-control" placeholder="Ciudad" #city="ngModel" [(ngModel)]="userService.selectedUser.city" name="city" required>
+                    <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !genre.valid">
+                      <strong>Ciudad </strong> obligatoria.
+                    </div>
+                
+            <!--state-->
+                    <label for="exampleInputEmail1">Estado/Provincia/Región  </label>
+                        <input type="text" class="form-control" placeholder="Estado/Provincia/Región" #state="ngModel" [(ngModel)]="userService.selectedUser.state" name="state" required>
+                        <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !genre.valid">
+                          <strong>Estado </strong> obligatorio.
+                        </div>
+          
+                        
+            <!--country-->
+                        <label for="exampleInputEmail1">País  </label>
+                     
+                        <select class="form-control" id="exampleFormControlSelect1" #country="ngModel" [(ngModel)]="userService.selectedUser.country" name="country" required>
+                          <option value="3">Afghanistan</option>
+                          <option value="246">Åland Islands</option>
+                          <option value="6">Albania</option>
+                          <option value="59">Algeria</option>
+                          <option value="12">American Samoa</option>
+                          <option value="1">Andorra</option>
+                          <option value="9">Angola</option>
+                          <option value="5">Anguilla</option>
+                          <option value="10">Antarctica</option>
+                          <option value="4">Antigua and Barbuda</option>
+                          <option value="11">Argentina</option>
+                          <option value="7">Armenia</option>
+                          <option value="15">Aruba</option>
+                          <option value="14">Australia</option>
+                          <option value="13">Austria</option>
+                          <option value="16">Azerbaijan</option>
+                          <option value="30">Bahamas</option>
+                          <option value="23">Bahrain</option>
+                          <option value="19">Bangladesh</option>
+                          <option value="18">Barbados</option>
+                          <option value="34">Belarus</option>
+                          <option value="20">Belgium</option>
+                          <option value="35">Belize</option>
+                          <option value="25">Benin</option>
+                          <option value="26">Bermuda</option>
+                          <option value="31">Bhutan</option>
+                          <option value="28">Bolivia</option>
+                          <option value="17">Bosnia and Herzegovina</option>
+                          <option value="33">Botswana</option>
+                          <option value="32">Bouvet Island</option>
+                          <option value="29">Brazil</option>
+                          <option value="102">British Indian Ocean Territory</option>
+                          <option value="230">British Virgin Islands</option>
+                          <option value="27">Brunei</option>
+                          <option value="22">Bulgaria</option>
+                          <option value="21">Burkina Faso</option>
+                          <option value="24">Burundi</option>
+                          <option value="112">Cambodia</option>
+                          <option value="45">Cameroon</option>
+                          <option value="36">Canada</option>
+                          <option value="50">Cape Verde</option>
+                          <option value="119">Cayman Islands</option>
+                          <option value="39">Central African Republic</option>
+                          <option value="206">Chad</option>
+                          <option value="44">Chile</option>
+                          <option value="46">China</option>
+                          <option value="51">Christmas Island</option>
+                          <option value="37">Cocos Islands</option>
+                          <option value="47">Colombia</option>
+                          <option value="114">Comoros</option>
+                          <option value="43">Cook Islands</option>
+                          <option value="48">Costa Rica</option>
+                          <option value="95">Croatia</option>
+                          <option value="49">Cuba</option>
+                          <option value="52">Cyprus</option>
+                          <option value="53">Czech Republic</option>
+                          <option value="38">Democratic Republic of the Congo</option>
+                          <option value="56">Denmark</option>
+                          <option value="55">Djibouti</option>
+                          <option value="57">Dominica</option>
+                          <option value="58">Dominican Republic</option>
+                          <option value="251">East Timor</option>
+                          <option value="60">Ecuador</option>
+                          <option value="62">Egypt</option>
+                          <option value="202">El Salvador</option>
+                          <option value="85">Equatorial Guinea</option>
+                          <option value="64">Eritrea</option>
+                          <option value="61">Estonia</option>
+                          <option value="66">Ethiopia</option>
+                          <option value="69">Falkland Islands</option>
+                          <option value="71">Faroe Islands</option>
+                          <option value="68">Fiji</option>
+                          <option value="67">Finland</option>
+                          <option value="72">France</option>
+                          <option value="73">France Metropolitan</option>
+                          <option value="78">French Guiana</option>
+                          <option value="169">French Polynesia</option>
+                          <option value="207">French Southern and Antarctic Lands</option>
+                          <option value="74">Gabon</option>
+                          <option value="82">Gambia</option>
+                          <option value="77">Georgia</option>
+                          <option value="54">Germany</option>
+                          <option value="79">Ghana</option>
+                          <option value="80">Gibraltar</option>
+                          <option value="86">Greece</option>
+                          <option value="81">Greenland</option>
+                          <option value="76">Grenada</option>
+                          <option value="84">Guadeloupe</option>
+                          <option value="89">Guam</option>
+                          <option value="88">Guatemala</option>
+                          <option value="243">Guernsey</option>
+                          <option value="83">Guinea</option>
+                          <option value="90">Guinea-Bissau</option>
+                          <option value="91">Guyana</option>
+                          <option value="96">Haiti</option>
+                          <option value="93">Heard Island and McDonald Islands</option>
+                          <option value="94">Honduras</option>
+                          <option value="92">Hong Kong</option>
+                          <option value="97">Hungary</option>
+                          <option value="105">Iceland</option>
+                          <option value="101">India</option>
+                          <option value="98">Indonesia</option>
+                          <option value="104">Iran</option>
+                          <option value="103">Iraq</option>
+                          <option value="99">Ireland</option>
+                          <option value="244">Isle of Man</option>
+                          <option value="100">Israel</option>
+                          <option value="106">Italy</option>
+                          <option value="42">Ivory Coast</option>
+                          <option value="107">Jamaica</option>
+                          <option value="109">Japan</option>
+                          <option value="245">Jersey</option>
+                          <option value="108">Jordan</option>
+                          <option value="120">Kazakhstan</option>
+                          <option value="110">Kenya</option>
+                          <option value="113">Kiribati</option>
+                          <option value="118">Kuwait</option>
+                          <option value="111">Kyrgyzstan</option>
+                          <option value="121">Laos</option>
+                          <option value="130">Latvia</option>
+                          <option value="122">Lebanon</option>
+                          <option value="127">Lesotho</option>
+                          <option value="126">Liberia</option>
+                          <option value="132">Libya</option>
+                          <option value="124">Liechtenstein</option>
+                          <option value="128">Lithuania</option>
+                          <option value="129">Luxembourg</option>
+                          <option value="131">LX (Obsolete)</option>
+                          <option value="142">Macao</option>
+                          <option value="138">Macedonia</option>
+                          <option value="136">Madagascar</option>
+                          <option value="150">Malawi</option>
+                          <option value="152">Malaysia</option>
+                          <option value="149">Maldives</option>
+                          <option value="139">Mali</option>
+                          <option value="147">Malta</option>
+                          <option value="137">Marshall Islands</option>
+                          <option value="144">Martinique</option>
+                          <option value="145">Mauritania</option>
+                          <option value="148">Mauritius</option>
+                          <option value="237">Mayotte</option>
+                          <option value="151">Mexico</option>
+                          <option value="70">Micronesia</option>
+                          <option value="135">Moldova</option>
+                          <option value="134">Monaco</option>
+                          <option value="141">Mongolia</option>
+                          <option value="248">Montenegro</option>
+                          <option value="146">Montserrat</option>
+                          <option value="133">Morocco</option>
+                          <option value="153">Mozambique</option>
+                          <option value="140">Myanmar</option>
+                          <option value="154">Namibia</option>
+                          <option value="163">Nauru Central Pacific</option>
+                          <option value="162">Nepal</option>
+                          <option value="160">Netherlands</option>
+                          <option value="8">Netherlands Antilles</option>
+                          <option value="155">New Caledonia</option>
+                          <option value="165">New Zealand</option>
+                          <option value="159">Nicaragua</option>
+                          <option value="156">Niger</option>
+                          <option value="158">Nigeria</option>
+                          <option value="164">Niue</option>
+                          <option value="157">Norfolk Island</option>
+                          <option value="143">Northern Mariana Islands</option>
+                          <option value="116">North Korea</option>
+                          <option value="161">Norway</option>
+                          <option value="166">Oman</option>
+                          <option value="172">Pakistan</option>
+                          <option value="179">Palau</option>
+                          <option value="177">Palestinian Territory</option>
+                          <option value="167">Panama</option>
+                          <option value="170">Papua New Guinea</option>
+                          <option value="180">Paraguay</option>
+                          <option value="168">Peru</option>
+                          <option value="171">Philippines</option>
+                          <option value="175">Pitcairn</option>
+                          <option value="173">Poland</option>
+                          <option value="178">Portugal</option>
+                          <option value="176">Puerto Rico</option>
+                          <option value="181">Qatar</option>
+                          <option value="40">Republic of the Congo</option>
+                          <option value="182">Reunion</option>
+                          <option value="183">Romania</option>
+                          <option value="184">Russia</option>
+                          <option value="185">Rwanda</option>
+                          <option value="247">Saint-Barthélemy</option>
+                          <option value="192">Saint Helena</option>
+                          <option value="115">Saint Kitts and Nevis</option>
+                          <option value="123">Saint Lucia</option>
+                          <option value="249">Saint Martin</option>
+                          <option value="174">Saint Pierre and Miquelon</option>
+                          <option value="228">Saint Vincent and the Grenadines</option>
+                          <option value="235">Samoa</option>
+                          <option value="197">San Marino</option>
+                          <option value="201">São Tomé and Príncipe</option>
+                          <option value="186">Saudi Arabia</option>
+                          <option value="198">Senegal</option>
+                          <option value="250">Serbia</option>
+                          <option value="252">Serbia and Montenegro</option>
+                          <option value="188">Seychelles</option>
+                          <option value="196">Sierra Leone</option>
+                          <option value="191">Singapore</option>
+                          <option value="195">Slovakia</option>
+                          <option value="193">Slovenia</option>
+                          <option value="187">Solomon Islands</option>
+                          <option value="199">Somalia</option>
+                          <option value="239">South Africa</option>
+                          <option value="87">South Georgia and the South Sandwich Islands</option>
+                          <option value="117">South Korea</option>
+                          <option value="300">Soviet Union (former)</option>
+                          <option value="65">Spain</option>
+                          <option value="125">Sri Lanka</option>
+                          <option value="189">Sudan</option>
+                          <option value="200">Suriname</option>
+                          <option value="194">Svalbard and Jan Mayen</option>
+                          <option value="204">Swaziland</option>
+                          <option value="190">Sweden</option>
+                          <option value="41">Switzerland</option>
+                          <option value="203">Syria</option>
+                          <option value="219">Taiwan</option>
+                          <option value="210">Tajikistan</option>
+                          <option value="220">Tanzania</option>
+                          <option value="209">Thailand</option>
+                          <option value="208">Togo</option>
+                          <option value="211">Tokelau</option>
+                          <option value="214">Tonga</option>
+                          <option value="217">Trinidad and Tobago</option>
+                          <option value="213">Tunisia</option>
+                          <option value="216">Turkey</option>
+                          <option value="212">Turkmenistan</option>
+                          <option value="205">Turks and Caicos Islands</option>
+                          <option value="218">Tuvalu</option>
+                          <option value="222">Uganda</option>
+                          <option value="221">Ukraine</option>
+                          <option value="2">United Arab Emirates</option>
+                          <option value="75">United Kingdom</option>
+                          <option value="224">United States</option>
+                          <option value="223">United States Minor Outlying Islands</option>
+                          <option value="0">Unknown</option>
+                          <option value="225">Uruguay</option>
+                          <option value="231">U.S. Virgin Islands</option>
+                          <option value="226">Uzbekistan</option>
+                          <option value="233">Vanuatu</option>
+                          <option value="227">Vatican</option>
+                          <option value="229">Venezuela</option>
+                          <option value="232">Vietnam</option>
+                          <option value="234">Wallis and Futuna</option>
+                          <option value="63">Western Sahara</option>
+                          <option value="236">Yemen</option>
+                          <option value="238">Yugoslavia</option>
+                          <option value="241">Zaire</option>
+                          <option value="240">Zambia</option>
+                          <option value="242">Zimbabwe</option>
+                        </select>
+                        <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !genre.valid">
+                          <strong>País </strong> obligatorio.
+                        </div>
+                       
+            <!--cp-->
+                            <label for="exampleInputEmail1">Código Postal  </label>
+                            <input type="text" class="form-control" placeholder="Código Postal" #cp="ngModel" [(ngModel)]="userService.selectedUser.cp" name="cp" required>
+                            <div class="alert alert-danger " role="alert" *ngIf="signUpForm.submitted && !genre.valid">
+                              <strong>Código Postal </strong> obligatorio.
+                            </div>
+                            
+                        
+            <button type="submit" class=" m-4 btn-lg btn-primary" >Registrarme</button>
+           
+          </form>
+          
+        <div class="alert alert-success" role="alert" *ngIf="showSuccesMessage">
+               <strong>Well done!</strong> You successfully read this
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="serverErrorMessage">
+          <strong> Error !</strong> {{serverErrorMessage}}
+   </div>
+        
+
+    </section>
+</div>

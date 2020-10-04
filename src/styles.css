@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+  background-color: whitesmoke;
+}
+
+#nav-bar{
+  background-color: white;
+}
+#login{
+  background-color: black;
+}
+#login a{
+  color: whitesmoke;
+  margin-left: 1rem;
+  margin-right: .5rem;
+}
+
+#principal-menu li {
+  display: inline;
+ }
+
+  #principal-menu ul a {
+    color: black;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    
+   
+   
+   }
+  
+  #principal-menu ul a:hover,
+  #principal-menu ul li.active a {
+    color: steelblue  ;
+    font-size: 1.2rem;
+  }
+
+  #Carrousel{
+   
+    height: 50vh;
+  }
+  #Carrousel{
+    padding: 1.5rem;
+  }
+  #phrase{
+    font-size: 1.5rem;
+   text-align: center;
+  }
+
+  #how_it_works{
+    background-color: white;
+    padding: 4rem;
+  }
+
+  .vl {
+    border-left: 2px solid black;
+    height: 100vh;
+  }

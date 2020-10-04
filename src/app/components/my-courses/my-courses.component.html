@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="pt-4" *ngIf="userDetails">
+    Bienvenido {{userDetails.name}} 
+  </h1>
+    <h2>Sus Cursos </h2>
+    <span> Administrar su cursos de Scientology en Línea </span>
+
+
+  <!--Prueba-->
+
+  <section id ="how_it_works">
+      <div class="row">
+          <div class="col-3">
+            <img src="https://info.flag.org/extensioncourse//home/courses/content/0/image_es_MX/27a.png" alt="">
+
+          </div>
+          <div class="col-7">
+              <h4>Curso Actual: {{userDetails.actualCourse}} </h4>
+              <span>Comenzado el día: </span>
+              
+        <div class="progress m-4">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25% 
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+         <a [routerLink]="['/My-Course']">
+        <button type="button" class="btn btn-outline-secondary">Continuar</button>
+         </a>
+        <input type="button" class="btn btn-outline-secondary" (click)="onLogOut()"value="Cerrar Sesión">
+    </div>
+    </div>
+      </div>
+      <hr>
+   
+
+</section>
+</div>

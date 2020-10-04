@@ -1,0 +1,45 @@
+<div class="container">
+    <h2 class="pt-4">Curso : {{userDetails.actualCourse}} </h2>
+    <span> Leccion No. {{userDetails.actualNoLesson}} </span>
+    <section id ="how_it_works">
+        <div class="row">
+            <div class="col-8">
+                <div *ngFor="let question of Questions.question; let indice = index" >
+    <span><strong>Pregunta: {{indice + 1}}  </strong> {{question}} </span>
+
+    <form class="pt-2" #answersForm="ngForm"  >
+        <div class="form-group">
+            <textarea class="form-control" rows="3" [(ngModel)]="tempVal[indice]" name="answer[[index]]" ></textarea>
+        </div>
+        <button type="submit" class="pt-2 btn btn-outline-secondary" (click)="addnewAnswer(tempVal[indice])">Enviar Respuestas </button>
+    </form>
+</div>    
+</div>
+<div class="col-4">
+        <img  src="https://info.flag.org/extensioncourse//home/courses/content/0/image_es_MX/27a.png" alt="">
+
+        <ul class="list-group col.">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+</div>
+
+
+
+</div>
+<div class="row">
+    <div class="col-4 d-flex justify-content-start">
+    <button type="button" class="pt-2 btn btn-outline-secondary ">Guardar Borrador </button>
+    </div>
+    <div class="col-4 d-flex justify-content-end ">
+    <button type="submit" class="pt-2 btn btn-outline-secondary">Enviar Respuestas </button>
+    </div>
+</div>
+
+    </section>
+
+</div>
+
